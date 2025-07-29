@@ -3,6 +3,7 @@ const { body } = require("express-validator");
 const emptyErr = "must not be empty";
 const alphaErr = "must only contain letters";
 const lengthErr = "must be between 1 and 10 characters";
+const usernameLengthErr = "must be between 1 and 16 characters";
 const passwordLengthErr = "must have at least 8 characters";
 
 const registerValidation = [
@@ -34,8 +35,8 @@ const registerValidation = [
     .isAlpha()
     .withMessage(`Username ${alphaErr}`)
     .bail()
-    .isLength({ min: 1, max: 10 })
-    .withMessage(`Username ${lengthErr}`),
+    .isLength({ min: 1, max: 16 })
+    .withMessage(`Username ${usernameLengthErr}`),
   body("password")
     .trim()
     .notEmpty()

@@ -1,25 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><%= title %></title>
-</head>
-<body>
-  <h1>Register Page</h1>
-  <%- include("partials/errors.ejs") %>
-  <form action="/register" method="post">
-    <label for="firstName">First Name</label>
-    <input type="text" name="firstName" id="firstName" value="<%= user.firstName %>">
-    <label for="lastName">Last Name</label>
-    <input type="text" name="lastName" id="lastName" value="<%= user.lastName %>">
-    <label for="username">Username</label>
-    <input type="text" name="username" id="username" value="<%= user.username %>">
-    <label for="password">Password</label>
-    <input type="password" name="password" id="password" value="<%= user.password %>">
-    <label for="confirmPassword">Confirm Password</label>
-    <input type="password" name="confirmPassword" id="confirmPassword" value="<%= user.confirmPassword %>">
-    <button type="submit">Register</button>
-  </form>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+  </head>
+  <body>
+    <h1>Register Page</h1>
+    <%- include("partials/errors.ejs") %>
+    <form action="/register" method="post">
+      <label for="firstName">First Name</label>
+      <input
+        type="text"
+        name="firstName"
+        id="firstName"
+        value="<%= user.firstName %>"
+        minlength="1"
+        maxlength="10"
+        required
+      />
+      <label for="lastName">Last Name</label>
+      <input
+        type="text"
+        name="lastName"
+        id="lastName"
+        value="<%= user.lastName %>"
+        minlength="1"
+        maxlength="10"
+        required
+      />
+      <label for="username">Username</label>
+      <input
+        type="text"
+        name="username"
+        id="username"
+        value="<%= user.username %>"
+        minlength="1"
+        maxlength="16"
+        required
+      />
+      <label for="password">Password</label>
+      <input
+        type="password"
+        name="password"
+        id="password"
+        minlength="8"
+        required
+      />
+      <label for="confirmPassword">Confirm Password</label>
+      <input
+        type="password"
+        name="confirmPassword"
+        id="confirmPassword"
+        minlength="8"
+        required
+      />
+      <button type="submit">Register</button>
+    </form>
+  </body>
 </html>
