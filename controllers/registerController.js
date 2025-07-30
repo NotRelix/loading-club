@@ -26,8 +26,19 @@ exports.registerUserPost = [
       }
 
       const hashedPassword = await bcrypt.hash(password, 10);
-      await registerUser(firstName, lastName, username, hashedPassword);
-      res.redirect("/");
+      const { rows } = await registerUser(
+        firstName,
+        lastName,
+        username,
+        hashedPassword
+      );
+      const user = rows[0];
+      req.login(user, (err) => {
+        if (err) {
+          return next(err);
+        }
+        return res.redirect("/");
+      });
     } catch (err) {
       console.error(err);
       next(err);
