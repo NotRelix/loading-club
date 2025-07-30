@@ -4,58 +4,83 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= title %></title>
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/form.css" />
+    <link rel="stylesheet" href="css/partials/navbar.css" />
+    <link rel="stylesheet" href="css/partials/menuDropdown.css" />
+    <script src="js/navMenu.js" defer></script>
   </head>
   <body>
-    <h1>Register Page</h1>
-    <%- include("partials/errors.ejs") %>
-    <form action="/register" method="post">
-      <label for="firstName">First Name</label>
-      <input
-        type="text"
-        name="firstName"
-        id="firstName"
-        value="<%= user.firstName %>"
-        minlength="1"
-        maxlength="10"
-        required
-      />
-      <label for="lastName">Last Name</label>
-      <input
-        type="text"
-        name="lastName"
-        id="lastName"
-        value="<%= user.lastName %>"
-        minlength="1"
-        maxlength="10"
-        required
-      />
-      <label for="username">Username</label>
-      <input
-        type="text"
-        name="username"
-        id="username"
-        value="<%= user.username %>"
-        minlength="1"
-        maxlength="16"
-        required
-      />
-      <label for="password">Password</label>
-      <input
-        type="password"
-        name="password"
-        id="password"
-        minlength="8"
-        required
-      />
-      <label for="confirmPassword">Confirm Password</label>
-      <input
-        type="password"
-        name="confirmPassword"
-        id="confirmPassword"
-        minlength="8"
-        required
-      />
-      <button type="submit">Register</button>
-    </form>
+    <%- include("partials/navbar.ejs") %>
+    <main>
+      <div class="container">
+        <h1 class="header-text">Register</h1>
+        <%- include("partials/errors.ejs") %>
+        <form action="/register" method="post">
+          <div class="input-container">
+            <label for="firstName">First Name</label>
+            <input
+              type="text"
+              name="firstName"
+              id="firstName"
+              value="<%= user.firstName %>"
+              minlength="1"
+              maxlength="10"
+              placeholder="John"
+              required
+            />
+          </div>
+          <div class="input-container">
+            <label for="lastName">Last Name</label>
+            <input
+              type="text"
+              name="lastName"
+              id="lastName"
+              value="<%= user.lastName %>"
+              minlength="1"
+              maxlength="10"
+              placeholder="Smith"
+              required
+            />
+          </div>
+          <div class="input-container">
+            <label for="username">Username</label>
+            <input
+              type="text"
+              name="username"
+              id="username"
+              value="<%= user.username %>"
+              minlength="1"
+              maxlength="16"
+              placeholder="johnsmith"
+              required
+            />
+          </div>
+          <div class="input-container">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              minlength="8"
+              placeholder="Password"
+              required
+            />
+          </div>
+          <div class="input-container">
+            <label for="confirmPassword">Confirm Password</label>
+            <input
+              type="password"
+              name="confirmPassword"
+              id="confirmPassword"
+              minlength="8"
+              placeholder="Confirm Password"
+              required
+            />
+          </div>
+          <button type="submit">Register</button>
+        </form>
+      </div>
+    </main>
   </body>
 </html>

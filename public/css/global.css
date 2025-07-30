@@ -4,15 +4,18 @@
 :root {
   /* Background */
   --primary-bg: rgb(18, 18, 18);
+  --input-bg: rgb(24, 24, 24);
 
   /* Border */
-  --primary-border: rgb(23, 23, 23);
+  --primary-border: rgb(26, 26, 26);
 
   /* Text */
   --primary-text: rgb(238, 238, 238);
+  --muted-text: rgb(130, 130, 130);
 
   /* Hover */
   --primary-bg-hover: rgb(24, 24, 24);
+  --input-hover: rgb(26, 26, 26);
 }
 
 * {
@@ -29,5 +32,5 @@ body {
 
 main {
   min-height: 100vh;
-  padding: 64px 24px;
+  padding: 86px 24px;
 }
