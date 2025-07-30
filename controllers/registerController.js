@@ -1,4 +1,4 @@
-const { registerUser } = require("../db/query");
+const { registerUser, getUser } = require("../db/query");
 const { validationResult } = require("express-validator");
 const { registerValidation } = require("../middlewares/validation");
 const bcrypt = require("bcryptjs");
@@ -14,15 +14,28 @@ exports.registerUserPost = [
   registerValidation,
   async (req, res, next) => {
     const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res.status(400).render("register", {
-        title: "Register",
-        errors: errors.array(),
-        user: req.body,
-      });
-    }
+    const collectedErrors = errors.array();
     try {
       const { firstName, lastName, username, password } = req.body;
+
+      const userExists = await getUser(username);
+
+      if (userExists.length > 0) {
+        collectedErrors.push({
+          msg: "Username already exists",
+          param: "username",
+          location: "body",
+        });
+      }
+
+      if (collectedErrors.length > 0) {
+        return res.status(400).render("register", {
+          title: "Register",
+          errors: collectedErrors,
+          user: req.body,
+        });
+      }
+
       const hashedPassword = await bcrypt.hash(password, 10);
       await registerUser(firstName, lastName, username, hashedPassword);
       res.redirect("/");
