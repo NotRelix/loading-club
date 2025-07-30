@@ -1,0 +1,85 @@
+nav {
+  position: fixed;
+  padding: 8px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: var(--primary-bg);
+  border: 1px solid var(--primary-border);
+}
+
+.logo {
+  font-family: "Grenze Gotisch", serif;
+  cursor: pointer;
+  font-size: 24px;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.menu-container {
+  position: relative;
+  display: none;
+}
+
+.menu-btn-container {
+  display: flex;
+  padding: 6px;
+  cursor: pointer;
+  display: none;
+}
+
+.menu-btn-container:hover {
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+.menu-links {
+  position: absolute;
+  background-color: var(--primary-bg);
+  border: 1px solid var(--primary-border);
+  z-index: 10;
+  top: 100%;
+  right: 0;
+  padding: 4px;
+  gap: 8px;
+}
+
+.hidden {
+  display: none;
+}
+
+.menu-links a {
+  display: flex;
+  text-decoration: none;
+  padding: 8px 12px;
+}
+
+.menu-links a:hover {
+  background-color: var(--primary-bg-hover);
+}
+
+.menu-btn {
+  width: 24px;
+  height: auto;
+  fill: var(--primary-text);
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .menu-btn-container,
+  .menu-container {
+    display: flex;
+  }
+}
