@@ -14,24 +14,13 @@ exports.registerUserPost = [
   registerValidation,
   async (req, res, next) => {
     const errors = validationResult(req);
-    const collectedErrors = errors.array();
     try {
       const { firstName, lastName, username, password } = req.body;
 
-      const userExists = await getUser(username);
-
-      if (userExists.length > 0) {
-        collectedErrors.push({
-          msg: "Username already exists",
-          param: "username",
-          location: "body",
-        });
-      }
-
-      if (collectedErrors.length > 0) {
+      if (!errors.isEmpty()) {
         return res.status(400).render("register", {
           title: "Register",
-          errors: collectedErrors,
+          errors: errors.array(),
           user: req.body,
         });
       }

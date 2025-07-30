@@ -1,10 +1,12 @@
 const { body } = require("express-validator");
+const { getUser } = require("../db/query");
 
 const emptyErr = "must not be empty";
 const alphaErr = "must only contain letters";
 const lengthErr = "must be between 1 and 10 characters";
 const usernameLengthErr = "must be between 1 and 16 characters";
 const passwordLengthErr = "must have at least 8 characters";
+const alreadyExistsErr = "already exists";
 
 const registerValidation = [
   body("firstName")
@@ -31,6 +33,13 @@ const registerValidation = [
     .trim()
     .notEmpty()
     .withMessage(`Username ${emptyErr}`)
+    .bail()
+    .custom(async (username) => {
+      const userExists = await getUser(username);
+      if (userExists.length > 0) {
+        throw new Error(`Username ${alreadyExistsErr}`);
+      }
+    })
     .bail()
     .isAlpha()
     .withMessage(`Username ${alphaErr}`)
