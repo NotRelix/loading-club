@@ -1,5 +1,6 @@
 const { body } = require("express-validator");
 const { getUser } = require("../db/query");
+const bcrypt = require("bcryptjs");
 
 const emptyErr = "must not be empty";
 const alphaErr = "must only contain letters";
@@ -7,6 +8,7 @@ const lengthErr = "must be between 1 and 10 characters";
 const usernameLengthErr = "must be between 1 and 16 characters";
 const passwordLengthErr = "must have at least 8 characters";
 const alreadyExistsErr = "already exists";
+const doesntExistsErr = "doesn't exist";
 
 const registerValidation = [
   body("firstName")
@@ -69,6 +71,48 @@ const registerValidation = [
     }),
 ];
 
+const loginValidation = [
+  body("username")
+    .trim()
+    .notEmpty()
+    .withMessage(`Username ${emptyErr}`)
+    .bail()
+    .custom(async (username, { req }) => {
+      const userExists = await getUser(username);
+      if (userExists.length === 0) {
+        throw new Error(`Username ${doesntExistsErr}`);
+      }
+      req.foundUser = userExists[0];
+    })
+    .bail()
+    .isAlpha()
+    .withMessage(`Username ${alphaErr}`)
+    .bail()
+    .isLength({ min: 1, max: 16 })
+    .withMessage(`Username ${lengthErr}`),
+  body("password")
+    .trim()
+    .notEmpty()
+    .withMessage(`Password ${emptyErr}`)
+    .bail()
+    .isLength({ min: 8 })
+    .withMessage(`Password ${passwordLengthErr}`)
+    .bail()
+    .custom(async (password, { req }) => {
+      if (!req.foundUser) {
+        return Promise.resolve();
+      }
+      const isPasswordMatch = await bcrypt.compare(
+        password,
+        req.foundUser.password
+      );
+      if (!isPasswordMatch) {
+        throw new Error("Wrong Password");
+      }
+    }),
+];
+
 module.exports = {
   registerValidation,
+  loginValidation,
 };
