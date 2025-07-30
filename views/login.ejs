@@ -14,7 +14,7 @@
         type="text"
         name="username"
         id="username"
-        value="<%= user.username %>"
+        value="<%= typeof user !== 'undefined' ? user.username : '' %>"
         minlength="1"
         maxlength="16"
         required

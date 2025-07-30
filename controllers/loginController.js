@@ -1,16 +1,17 @@
 const { validationResult } = require("express-validator");
 const { loginValidation } = require("../middlewares/validation");
+const passport = require("passport");
 
 exports.loginUserGet = (req, res) => {
   res.render("login", {
     title: "Login",
-    user: {},
+    user: req.user,
   });
 };
 
 exports.loginUserPost = [
   loginValidation,
-  async (req, res, next) => {
+  (req, res, next) => {
     const errors = validationResult(req);
     try {
       if (!errors.isEmpty()) {
@@ -20,10 +21,14 @@ exports.loginUserPost = [
           user: req.body,
         });
       }
-      res.redirect("/");
+      next();
     } catch (err) {
       console.error(err);
       next(err);
     }
   },
+  passport.authenticate("local", {
+    successRedirect: "/",
+    failureRedirect: "/login",
+  }),
 ];
