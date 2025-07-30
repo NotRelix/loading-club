@@ -1,0 +1,51 @@
+.menu-container {
+  position: relative;
+  display: none;
+}
+
+.menu-btn-container {
+  display: flex;
+  padding: 6px;
+  cursor: pointer;
+  display: none;
+}
+
+.menu-links {
+  position: absolute;
+  background-color: var(--primary-bg);
+  border: 1px solid var(--primary-border);
+  z-index: 10;
+  top: 100%;
+  right: 0;
+  padding: 4px;
+  gap: 8px;
+}
+
+.hidden {
+  display: none;
+}
+
+.menu-links a {
+  display: flex;
+  text-decoration: none;
+  padding: 8px 12px;
+}
+
+.menu-links a:hover,
+.menu-btn-container:hover,
+.clicked {
+  background-color: var(--primary-bg-hover);
+}
+
+.menu-btn {
+  width: 24px;
+  height: auto;
+  fill: var(--primary-text);
+}
+
+@media (max-width: 768px) {
+  .menu-btn-container,
+  .menu-container {
+    display: flex;
+  }
+}
