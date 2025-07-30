@@ -1,4 +1,4 @@
-const { registerUser, getUser } = require("../db/query");
+const { registerUser } = require("../db/query");
 const { validationResult } = require("express-validator");
 const { registerValidation } = require("../middlewares/validation");
 const bcrypt = require("bcryptjs");
