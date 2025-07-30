@@ -3,10 +3,10 @@ const { loginValidation } = require("../middlewares/validation");
 const passport = require("passport");
 
 exports.loginUserGet = (req, res) => {
-  res.render("login", {
-    title: "Login",
-    user: req.user,
-  });
+    res.render("login", {
+      title: "Login",
+      userDetails: req.user,
+    });
 };
 
 exports.loginUserPost = [
@@ -18,7 +18,7 @@ exports.loginUserPost = [
         return res.status(400).render("login", {
           title: "Login",
           errors: errors.array(),
-          user: req.body,
+          userDetails: req.body,
         });
       }
       next();

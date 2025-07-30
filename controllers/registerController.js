@@ -6,7 +6,7 @@ const bcrypt = require("bcryptjs");
 exports.registerUserGet = (req, res) => {
   res.render("register", {
     title: "Register",
-    user: {},
+    userDetails: {},
   });
 };
 
@@ -21,7 +21,7 @@ exports.registerUserPost = [
         return res.status(400).render("register", {
           title: "Register",
           errors: errors.array(),
-          user: req.body,
+          userDetails: req.body,
         });
       }
 
