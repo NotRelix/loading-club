@@ -4,15 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= title %></title>
+    <link rel="stylesheet" href="css/global.css" />
   </head>
   <body>
-    <% if (locals.user) { %>
+    <%- include("partials/navbar.ejs") %>
+    <main>
+      <% if (locals.user) { %>
       <h1>Welcome to Loading Club (<%= user.username %>)</h1>
       <a href="/logout">Logout</a>
-    <% } else { %>
+      <% } else { %>
       <h1>Please Login</h1>
       <a href="/login">Login</a>
       <a href="/register">Register</a>
-    <% } %>
+      <% } %>
+    </main>
   </body>
 </html>

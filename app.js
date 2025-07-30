@@ -14,6 +14,7 @@ app.set("view engine", "ejs");
 app.use(sessionMiddleware);
 app.use(passport.session());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", homeRouter);
 

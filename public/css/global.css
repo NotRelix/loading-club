@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@100..900&family=Outfit:wght@400;700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  /* Background */
+  --primary-bg: rgb(18, 18, 18);
+
+  /* Border */
+  --primary-border: rgb(23, 23, 23);
+
+  /* Text */
+  --primary-text: rgb(238, 238, 238);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: var(--primary-text);
+  font-family: "Inter", sans-serif;
+}
+
+.logo {
+  font-family: "Grenze Gotisch", serif;
+  cursor: pointer;
+  font-size: 24px;
+  text-decoration: none;
+}
+
+nav {
+  position: fixed;
+  padding: 8px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: var(--primary-bg);
+  border: 1px solid var(--primary-border);
+}
+
+.nav-links {
+  display: flex;
+  gap: 16px;
+}
+
+.nav-links a {
+  text-decoration: none;
+}
+
+body {
+  background-color: var(--primary-bg);
+}
+
+main {
+  min-height: 100vh;
+  padding: 64px 24px;
+}
