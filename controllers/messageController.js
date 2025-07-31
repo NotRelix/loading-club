@@ -12,8 +12,8 @@ exports.messageAddGet = (req, res) => {
 exports.messageAddPost = [
   messageValidation,
   async (req, res) => {
-    const errors = validationResult(req);
     try {
+      const errors = validationResult(req);
       if (!errors.isEmpty()) {
         return res.status(400).render("addMessage", {
           title: "Add Message",

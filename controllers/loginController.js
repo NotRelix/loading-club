@@ -3,17 +3,17 @@ const { loginValidation } = require("../middlewares/validation");
 const passport = require("passport");
 
 exports.loginUserGet = (req, res) => {
-    res.render("login", {
-      title: "Login",
-      userDetails: req.user,
-    });
+  res.render("login", {
+    title: "Login",
+    userDetails: req.user,
+  });
 };
 
 exports.loginUserPost = [
   loginValidation,
   (req, res, next) => {
-    const errors = validationResult(req);
     try {
+      const errors = validationResult(req);
       if (!errors.isEmpty()) {
         return res.status(400).render("login", {
           title: "Login",

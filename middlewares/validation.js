@@ -129,8 +129,27 @@ const messageValidation = [
     .withMessage("Message must be between 4 and 500 characters"),
 ];
 
+const membershipValidation = [
+  body("membershipPass")
+    .trim()
+    .toLowerCase()
+    .notEmpty()
+    .withMessage(`Membership Pass ${emptyErr}`)
+    .bail()
+    .isAlpha()
+    .withMessage(`Membership Pass ${alphaErr}`)
+    .bail()
+    .custom((pass) => {
+      if (pass !== "loading") {
+        throw new Error("Wrong Membership Password");
+      }
+      return true;
+    }),
+];
+
 module.exports = {
   registerValidation,
   loginValidation,
   messageValidation,
+  membershipValidation,
 };

@@ -13,8 +13,8 @@ exports.registerUserGet = (req, res) => {
 exports.registerUserPost = [
   registerValidation,
   async (req, res, next) => {
-    const errors = validationResult(req);
     try {
+      const errors = validationResult(req);
       const { firstName, lastName, username, password } = req.body;
 
       if (!errors.isEmpty()) {
