@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/css/form.css" />
     <link rel="stylesheet" href="/css/partials/navbar.css" />
     <link rel="stylesheet" href="/css/partials/menuDropdown.css" />
+    <link rel="stylesheet" href="/css/partials/errors.css" />
     <script src="/js/navMenu.js" defer></script>
   </head>
   <body>
@@ -23,7 +24,7 @@
               type="text"
               name="username"
               id="username"
-              value="<%= typeof user !== 'undefined' ? userDetails.username : '' %>"
+              value="<%= typeof userDetails !== 'undefined' ? userDetails.username : '' %>"
               minlength="1"
               maxlength="16"
               placeholder="johnsmith"

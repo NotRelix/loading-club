@@ -5,7 +5,7 @@ const passport = require("passport");
 exports.loginUserGet = (req, res) => {
   res.render("login", {
     title: "Login",
-    userDetails: req.user,
+    userDetails: {},
   });
 };
 

@@ -1,0 +1,15 @@
+.errors-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: absolute;
+  top: 54px;
+  right: 0;
+  margin: 16px;
+  list-style-type: none;
+}
+
+.errors-container li {
+  background-color: var(--warning-bg);
+  padding: 16px;
+}
