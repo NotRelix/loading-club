@@ -4,13 +4,45 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= title %></title>
-    <link rel="stylesheet" href="css/global.css" />
-    <link rel="stylesheet" href="css/form.css" />
-    <link rel="stylesheet" href="css/partials/navbar.css" />
-    <link rel="stylesheet" href="css/partials/menuDropdown.css" />
-    <script src="js/navMenu.js" defer></script>
+    <link rel="stylesheet" href="/css/global.css" />
+    <link rel="stylesheet" href="/css/form.css" />
+    <link rel="stylesheet" href="/css/partials/navbar.css" />
+    <link rel="stylesheet" href="/css/partials/menuDropdown.css" />
+    <script src="/js/navMenu.js" defer></script>
   </head>
   <body>
-    <h1>Add Message</h1>
+    <%- include("partials/navbar.ejs") %>
+    <main>
+      <div class="container">
+        <h1 class="header-text">Add Message</h1>
+        <%- include("partials/errors.ejs") %>
+        <form action="/message/add" method="post">
+          <div class="input-container">
+            <label for="username">Title</label>
+            <input
+              type="text"
+              name="username"
+              id="username"
+              minlength="1"
+              maxlength="16"
+              placeholder="johnsmith"
+              required
+            />
+          </div>
+          <div class="input-container">
+            <label for="password">Message</label>
+            <input
+              type="text"
+              name="password"
+              id="password"
+              minlength="8"
+              placeholder="Password"
+              required
+            />
+          </div>
+          <button type="submit">Add Message</button>
+        </form>
+      </div>
+    </main>
   </body>
 </html>
