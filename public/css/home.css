@@ -17,3 +17,9 @@
   background-color: var(--note-bg);
   text-align: center;
 }
+
+.messages-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}

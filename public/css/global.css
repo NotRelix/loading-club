@@ -10,6 +10,7 @@
 
   /* Border */
   --primary-border: rgb(26, 26, 26);
+  --card-border: rgb(37, 37, 37);
 
   /* Text */
   --primary-text: rgb(238, 238, 238);

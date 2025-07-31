@@ -1,0 +1,29 @@
+.message-container {
+  border: 1px solid var(--card-border);
+  border-radius: 4px;
+  padding: 16px;
+}
+
+.user-info {
+  display: flex;
+}
+
+.user-picture {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 24px;
+  width: 48px;
+  height: 48px;
+  background-color: rgb(68, 68, 255);
+}
+
+.user-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 20px;
+}

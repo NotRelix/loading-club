@@ -1,0 +1,13 @@
+<div class="message-container">
+  <div class="user-info">
+    <div class="user-picture">
+      <%= message.username[0].toUpperCase() %>
+    </div>
+    <div class="user-text">
+      <span><%= message.first_name %> <%= message.last_name %></span>
+      <span>@<%= message.username %></span>
+    </div>
+  </div>
+  <h1 class="title"><%= message.title %></h1>
+  <p class="message"><%= message.message %></p>
+</div>

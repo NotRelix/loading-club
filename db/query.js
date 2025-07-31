@@ -26,9 +26,12 @@ async function registerUser(firstName, lastName, username, password) {
 
 async function getAllMessages() {
   try {
-    const rows = await pool.query(
-      "SELECT * FROM messages ORDER BY created_at DESC"
-    );
+    const rows = await pool.query(`
+      SELECT title, message, created_at, first_name, last_name, username FROM messages 
+      JOIN users
+      ON messages.user_id = users.id
+      ORDER BY created_at DESC
+    `);
     return rows;
   } catch (err) {
     console.error("Get all messages failed: ", err);
