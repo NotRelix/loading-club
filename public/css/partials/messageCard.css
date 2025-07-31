@@ -38,6 +38,10 @@
   font-size: 14px;
 }
 
+.message {
+  line-height: 1.5;
+}
+
 .user-text {
   display: flex;
   flex-direction: column;
