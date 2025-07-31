@@ -1,6 +1,9 @@
-exports.homeMessagesGet = (req, res) => {
+const { getAllMessages } = require("../db/query");
+
+exports.homeMessagesGet = async (req, res) => {
+  const result = await getAllMessages();
   res.render("home", {
     title: "Loading Club",
-    user: req.user,
+    messages: result.rows,
   });
 };

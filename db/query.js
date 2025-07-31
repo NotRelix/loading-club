@@ -24,6 +24,17 @@ async function registerUser(firstName, lastName, username, password) {
   }
 }
 
+async function getAllMessages() {
+  try {
+    const rows = await pool.query(
+      "SELECT * FROM messages ORDER BY created_at DESC"
+    );
+    return rows;
+  } catch (err) {
+    console.error("Get all messages failed: ", err);
+  }
+}
+
 async function addMessage(id, title, message) {
   try {
     await pool.query(
@@ -46,6 +57,7 @@ async function addMember(id) {
 module.exports = {
   getUser,
   registerUser,
+  getAllMessages,
   addMessage,
   addMember,
 };

@@ -23,6 +23,11 @@
             <p>Become a <a href="/member">member</a> to have more perks.</p>
           </div>
         <% } %>
+        <div class="messages-container">
+          <% messages.forEach((message) => { %>
+            <p><%= message.title %></p>
+          <% }) %>
+        </div>
       </div>
     </main>
   </body>
