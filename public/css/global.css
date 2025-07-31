@@ -7,6 +7,13 @@
   --input-bg: rgb(24, 24, 24);
   --warning-bg: rgb(221, 57, 57);
   --note-bg: rgb(62, 64, 167);
+  --avatar-bg-1: rgb(90, 90, 224);
+  --avatar-bg-2: rgb(85, 175, 100);
+  --avatar-bg-3: rgb(175, 85, 85);
+  --avatar-bg-4: rgb(172, 85, 175);
+  --avatar-bg-5: rgb(187, 172, 89);
+  --avatar-bg-6: rgb(33, 42, 165);
+  --avatar-bg-7: rgb(24, 158, 158);
 
   /* Border */
   --primary-border: rgb(26, 26, 26);

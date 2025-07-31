@@ -27,7 +27,7 @@ async function registerUser(firstName, lastName, username, password) {
 async function getAllMessages() {
   try {
     const rows = await pool.query(`
-      SELECT title, message, created_at, first_name, last_name, username FROM messages 
+      SELECT users.id, title, message, created_at, first_name, last_name, username FROM messages 
       JOIN users
       ON messages.user_id = users.id
       ORDER BY created_at DESC

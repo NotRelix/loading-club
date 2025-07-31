@@ -20,7 +20,6 @@
   font-size: 24px;
   width: 48px;
   height: 48px;
-  background-color: rgb(68, 68, 255);
 }
 
 .username {
@@ -46,4 +45,32 @@
 
 .title {
   font-size: 20px;
+}
+
+.avatar-1 {
+  background-color: var(--avatar-bg-1);
+}
+
+.avatar-2 {
+  background-color: var(--avatar-bg-2);
+}
+
+.avatar-3 {
+  background-color: var(--avatar-bg-3);
+}
+
+.avatar-4 {
+  background-color: var(--avatar-bg-4);
+}
+
+.avatar-5 {
+  background-color: var(--avatar-bg-5);
+}
+
+.avatar-6 {
+  background-color: var(--avatar-bg-6);
+}
+
+.avatar-7 {
+  background-color: var(--avatar-bg-7);
 }
