@@ -15,8 +15,8 @@ async function getUser(username) {
 async function registerUser(firstName, lastName, username, password) {
   try {
     const rows = await pool.query(
-      "INSERT INTO users (first_name, last_name, username, password, admin) VALUES ($1, $2, $3, $4, $5) RETURNING id",
-      [firstName, lastName, username, password, false]
+      "INSERT INTO users (first_name, last_name, username, password) VALUES ($1, $2, $3, $4) RETURNING id",
+      [firstName, lastName, username, password]
     );
     return rows;
   } catch (err) {
