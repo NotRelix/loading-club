@@ -35,8 +35,17 @@ async function addMessage(id, title, message) {
   }
 }
 
+async function addMember(id) {
+  try {
+    await pool.query("UPDATE users SET membership = true WHERE id = $1", [id]);
+  } catch (err) {
+    console.error("Add member failed: ", err);
+  }
+}
+
 module.exports = {
   getUser,
   registerUser,
   addMessage,
+  addMember,
 };
