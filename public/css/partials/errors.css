@@ -1,4 +1,5 @@
 .errors-container {
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -10,6 +11,24 @@
 }
 
 .errors-container li {
+  display: flex;
+  align-items: center;
   background-color: var(--warning-bg);
   padding: 16px;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.errors-container li.fade-in {
+  transform: translateX(0%);
+  opacity: 1;
+}
+
+.close-btn {
+  margin-left: 15px;
+  font-weight: bold;
+  float: right;
+  cursor: pointer;
+  font-size: 22px;
 }
