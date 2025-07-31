@@ -112,7 +112,25 @@ const loginValidation = [
     }),
 ];
 
+const messageValidation = [
+  body("title")
+    .trim()
+    .notEmpty()
+    .withMessage(`Title ${emptyErr}`)
+    .bail()
+    .isLength({ min: 4, max: 32 })
+    .withMessage("Title must be between 4 and 32 characters"),
+  body("message")
+    .trim()
+    .notEmpty()
+    .withMessage(`Message ${emptyErr}`)
+    .bail()
+    .isLength({ min: 4, max: 500 })
+    .withMessage("Message must be between 4 and 500 characters"),
+];
+
 module.exports = {
   registerValidation,
   loginValidation,
+  messageValidation,
 };

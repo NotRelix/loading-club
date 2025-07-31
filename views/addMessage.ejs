@@ -23,9 +23,10 @@
               type="text"
               name="title"
               id="title"
-              minlength="1"
-              maxlength="16"
+              minlength="4"
+              maxlength="32"
               placeholder="Title"
+              value="<%= data.title || '' %>"
               required
             />
           </div>
@@ -36,10 +37,11 @@
               name="message"
               id="message"
               rows="4"
-              minlength="8"
+              minlength="4"
+              maxlength="500"
               placeholder="Message"
               required
-            ></textarea>
+            ><%= data.message || '' %></textarea>
           </div>
           <button type="submit">Add Message</button>
         </form>
