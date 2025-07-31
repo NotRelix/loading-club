@@ -10,4 +10,15 @@ const redirectIfAuthenticated = (req, res, next) => {
   next();
 };
 
-module.exports = { redirectIfAuthenticated, setUserToLocals };
+const ensureAuthenticated = (req, res, next) => {
+  if (!req.isAuthenticated()) {
+    return res.redirect("/login");
+  }
+  next();
+};
+
+module.exports = {
+  redirectIfAuthenticated,
+  setUserToLocals,
+  ensureAuthenticated,
+};

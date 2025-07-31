@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS messages (
   user_id INTEGER REFERENCES users(id),
   title TEXT,
   message TEXT,
-  created_at DATE
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 `;
 

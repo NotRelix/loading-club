@@ -24,7 +24,19 @@ async function registerUser(firstName, lastName, username, password) {
   }
 }
 
+async function addMessage(id, title, message) {
+  try {
+    await pool.query(
+      "INSERT INTO messages (user_id, title, message) VALUES ($1, $2, $3)",
+      [id, title, message]
+    );
+  } catch (err) {
+    console.error("Add message failed: ", err);
+  }
+}
+
 module.exports = {
   getUser,
   registerUser,
+  addMessage,
 };
