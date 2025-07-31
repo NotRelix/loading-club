@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= title %></title>
     <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/home.css" />
     <link rel="stylesheet" href="css/partials/navbar.css" />
     <link rel="stylesheet" href="css/partials/menuDropdown.css" />
     <script src="js/navMenu.js" defer></script>
@@ -12,14 +13,17 @@
   <body>
     <%- include("partials/navbar.ejs") %>
     <main>
-      <% if (locals.user) { %>
-      <h1>Welcome to Loading Club (<%= user.username %>)</h1>
-      <a href="/logout">Logout</a>
-      <% } else { %>
-      <h1>Please Login</h1>
-      <a href="/login">Login</a>
-      <a href="/register">Register</a>
-      <% } %>
+      <div class="container">
+        <% if (!locals.user) { %>
+          <div class="card-container note">
+            <p>You need to <a href="/login">login</a> first to send a message.</p>
+          </div>
+        <% } else if (!locals.user.membership) { %>
+          <div class="card-container note">
+            <p>Become a <a href="/member">member</a> to have more perks.</p>
+          </div>
+        <% } %>
+      </div>
     </main>
   </body>
 </html>
