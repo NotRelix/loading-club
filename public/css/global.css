@@ -34,3 +34,7 @@ main {
   min-height: 100vh;
   padding: 86px 24px;
 }
+
+.separator {
+  border: 1px solid var(--primary-border);
+}
