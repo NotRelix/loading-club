@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= title %></title>
     <link rel="stylesheet" href="/css/global.css" />
+    <link rel="stylesheet" href="/css/member.css" />
     <link rel="stylesheet" href="/css/partials/navbar.css" />
     <link rel="stylesheet" href="/css/partials/menuDropdown.css" />
     <link rel="stylesheet" href="/css/partials/errors.css" />
@@ -14,13 +15,62 @@
   <body>
     <%- include("partials/navbar") %>
     <main>
-      <h1>Membership</h1>
-      <%- include("partials/errors.ejs") %>
-      <form action="/member" method="post">
-        <label for="membershipPass">Membership Code</label>
-        <input type="text" name="membershipPass" id="membershipPass" />
-        <button type="submit">Join</button>
-      </form>
+      <div class="container">
+        <section>
+          <h1>What is the Loading Club?</h1>
+          <p>
+            Loading Club is a lowkey messaging forum where people drop ideas,
+            updates, jokes, thoughts, or just whatever's on their mind. It's
+            like a form, but not really.
+          </p>
+          <p>
+            It's for those in-between moments when you're loading... waiting...
+            thinking... typing... and maybe oversharing. There’s no algorithm.
+            No feed rage. Just raw text, plain words, and people you probably
+            kinda know. Whether you're venting, flexing, or just lurking, this
+            space is for those who feel like their thoughts are buffering and
+            need somewhere to land.
+          </p>
+        </section>
+        <section>
+          <h1>Who is Loading?</h1>
+          <p>
+            We're students. We're procrastinators. We're creatives who can't
+            stop overthinking. We're the kind of people who doom-scroll at 3:14
+            a.m. instead of sleeping.
+          </p>
+          <p>
+            <strong><i>Loading</i></strong> is not a person, it’s a state of
+            mind.
+          </p>
+          <p>If you get it, you get it.</p>
+        </section>
+        <section>
+          <h1>Why Should You Join?</h1>
+          <p>Because it’s chill.</p>
+          <p>Because it’s honest.</p>
+          <p>
+            Because sometimes you don’t want to post on Instagram or tweet to
+            strangers. You just want to say something... and let it sit.
+          </p>
+          <p>Because you like secret stuff.</p>
+          <p>Because you found this page.</p>
+        </section>
+        <% if (!locals.user.membership) { %>
+        <form action="/member" method="post">
+          <%- include("partials/errors.ejs") %>
+          <label for="membershipPass">Hint: Read this page carefully</label>
+          <input
+            type="text"
+            name="membershipPass"
+            id="membershipPass"
+            placeholder="Membership Code"
+          />
+          <button type="submit">Join Now</button>
+        </form>
+
+        <% } %>
+      </div>
     </main>
   </body>
 </html>
