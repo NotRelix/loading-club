@@ -20,6 +20,7 @@
   font-size: 24px;
   width: 48px;
   height: 48px;
+  flex-shrink: 0;
 }
 
 .username {
@@ -73,4 +74,16 @@
 
 .avatar-7 {
   background-color: var(--avatar-bg-7);
+}
+
+@media (max-width: 520px) {
+  .user-picture {
+    font-size: 20px;
+    width: 44px;
+    height: 44px;
+  }
+
+  .username {
+    font-size: 13px;
+  }
 }

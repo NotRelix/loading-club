@@ -6,10 +6,10 @@
     <div class="user-text">
       <% if (locals.user?.membership || false) { %>
         <span><%= message.first_name %> <%= message.last_name %></span>
-        <span class="username">@<%= message.username %></span>
+        <span class="username">@<%= message.username %> - <%= formatDate(message.created_at) %></span>
       <% } else { %>
         <span>Anonymous</span>
-        <span class="username">@anonymous</span>
+        <span class="username">@anonymous - <%= formatDate(message.created_at) %></span>
       <% } %>
     </div>
   </div>
