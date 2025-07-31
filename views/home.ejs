@@ -16,17 +16,17 @@
     <main>
       <div class="container">
         <% if (!locals.user) { %>
-          <div class="card-container note">
-            <p>You need to <a href="/login">login</a> first to send a message.</p>
-          </div>
+        <div class="card-container note">
+          <p>You need to <a href="/login">login</a> first to send a message.</p>
+        </div>
         <% } else if (!locals.user.membership) { %>
-          <div class="card-container note">
-            <p>Become a <a href="/member">member</a> to have more perks.</p>
-          </div>
+        <div class="card-container note">
+          <p>Become a <a href="/member">member</a> to have more perks.</p>
+        </div>
         <% } %>
         <div class="messages-container">
-          <% messages.forEach((message) => { %>
-            <%- include("partials/messageCard.ejs", {message}) %>
+          <% messages.forEach((message) => { %> <%-
+          include("partials/messageCard.ejs", {message}) %>
           <% }) %>
         </div>
       </div>

@@ -4,10 +4,17 @@
       <%= message.username[0].toUpperCase() %>
     </div>
     <div class="user-text">
-      <span><%= message.first_name %> <%= message.last_name %></span>
-      <span>@<%= message.username %></span>
+      <% if (locals.user?.membership || false) { %>
+        <span><%= message.first_name %> <%= message.last_name %></span>
+        <span class="username">@<%= message.username %></span>
+      <% } else { %>
+        <span>Anonymous</span>
+        <span class="username">@anonymous</span>
+      <% } %>
     </div>
   </div>
-  <h1 class="title"><%= message.title %></h1>
-  <p class="message"><%= message.message %></p>
+  <div class="message-content">
+    <h1 class="title"><%= message.title %></h1>
+    <p class="message"><%= message.message %></p>
+  </div>
 </div>

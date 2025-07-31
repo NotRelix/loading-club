@@ -2,10 +2,14 @@
   border: 1px solid var(--card-border);
   border-radius: 4px;
   padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .user-info {
   display: flex;
+  gap: 8px;
 }
 
 .user-picture {
@@ -19,9 +23,25 @@
   background-color: rgb(68, 68, 255);
 }
 
+.username {
+  color: var(--muted-text);
+}
+
+.message-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.username,
+.message {
+  font-size: 14px;
+}
+
 .user-text {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
 }
 
 .title {
